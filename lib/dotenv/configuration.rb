@@ -1,5 +1,6 @@
 require "dotenv"
 require "dotenv/parser"
+require "tempfile"
 require "dotenv/configuration/version"
 
 module Dotenv
@@ -15,7 +16,8 @@ module Dotenv
         raise ArgumentError
       end
 
-      current = Parser.new ::File.read(envfile)
+      content = ::File.read(envfile) rescue ''
+      current = Parser.call(content)
       if settings.keys.any? {|key| !current[key] }
         t = Tempfile.new("dotenv-configuration")
         settings.each do |key, default_value|
