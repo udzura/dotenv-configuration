@@ -2,6 +2,8 @@
 
 A utility method for using dotenv as a configuration manager
 
+[![wercker status](https://app.wercker.com/status/6ec163c575129ae5fe43bd730cddf307/m "wercker status")](https://app.wercker.com/project/bykey/6ec163c575129ae5fe43bd730cddf307)
+
 ## Installation
 
 Add this line to your application's Gemfile:

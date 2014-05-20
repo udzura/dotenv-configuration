@@ -1,0 +1,24 @@
+box: wercker/rvm
+build:
+    steps:
+        - rvm-use:
+            version: ruby-2.1.2
+        - bundle-install
+        - script:
+            name: echo ruby information
+            code: |
+                echo "ruby version $(ruby --version) running"
+        - script:
+               name: run rspec
+               code: bundle exec rake spec
+
+        - rvm-use:
+            version: ruby-2.0.0-p481
+        - bundle-install
+        - script:
+            name: echo ruby information
+            code: |
+                echo "ruby version $(ruby --version) running"
+        - script:
+               name: run rspec
+               code: bundle exec rake spec
